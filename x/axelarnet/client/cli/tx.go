@@ -74,19 +74,19 @@ func GetCmdConfirmDeposit() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "confirm-deposit [denom] [burnerAddr]",
 		Short: "Confirm a deposit to Axelar chain that sent given the asset denomination and the burner address",
-		Args:  cobra.ExactArgs(3),
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cliCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			burnerAddr, err := sdk.AccAddressFromBech32(args[2])
+			burnerAddr, err := sdk.AccAddressFromBech32(args[1])
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewConfirmDepositRequest(cliCtx.GetFromAddress(), args[1], burnerAddr)
+			msg := types.NewConfirmDepositRequest(cliCtx.GetFromAddress(), args[0], burnerAddr)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -178,7 +178,7 @@ func GetCmdAddCosmosBasedChain() *cobra.Command {
 				return fmt.Errorf("could not convert string to integer")
 			}
 
-			assets[i] = nexus.Asset{Denom: denom, MinAmount: minAmount}
+			assets[i] = nexus.NewAsset(denom, minAmount, true)
 		}
 
 		name := args[0]
@@ -221,7 +221,7 @@ func GetCmdRegisterAsset() *cobra.Command {
 			return err
 		}
 
-		msg := types.NewRegisterAssetRequest(cliCtx.GetFromAddress(), chain, nexus.NewAsset(denom, minAmount), isNativeAsset)
+		msg := types.NewRegisterAssetRequest(cliCtx.GetFromAddress(), chain, nexus.NewAsset(denom, minAmount, isNativeAsset))
 		if err := msg.ValidateBasic(); err != nil {
 			return err
 		}
