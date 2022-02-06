@@ -1,103 +1,103 @@
 # CLI command overview
 
-- [axelard](axelard.md)	 - Axelar App
-  - [add-genesis-account \[address_or_key_name\] \[coin\]\[,\[coin\]\]](axelard_add-genesis-account.md)	 - Add a genesis account to genesis.json
-  - [add-genesis-evm-chain \[name\] \[native asset\]](axelard_add-genesis-evm-chain.md)	 - Adds an EVM chain in genesis.json
-  - [collect-gentxs](axelard_collect-gentxs.md)	 - Collect genesis txs and output a genesis.json file
-  - [debug](axelard_debug.md)	 - Tool for helping with debugging your application
-    - [addr \[address\]](axelard_debug_addr.md)	 - Convert an address between hex and bech32
-    - [pubkey \[pubkey\]](axelard_debug_pubkey.md)	 - Decode a pubkey from proto JSON
-    - [raw-bytes \[raw-bytes\]](axelard_debug_raw-bytes.md)	 - Convert raw bytes output (eg. \[10 21 13 255\]) to hex
-  - [export](axelard_export.md)	 - Export state to JSON
-  - [gentx \[key_name\] \[amount\]](axelard_gentx.md)	 - Generate a genesis tx carrying a self delegation
+- [axelard](axelard.md)	 - Axelar Uygulaması
+  - [add-genesis-account \[address_or_key_name\] \[coin\]\[,\[coin\]\]](axelard_add-genesis-account.md)	 - genesis.json'a bir genesis hesabı ekle
+  - [add-genesis-evm-chain \[name\] \[native asset\]](axelard_add-genesis-evm-chain.md)	 - Genesis.json'a bir EVM zinciri ekler
+  - [collect-gentxs](axelard_collect-gentxs.md)	 - Genesis tx'lerini toplar ve bir genesis.json dosyası çıkarır
+  - [debug](axelard_debug.md)	 - Uygulamanızda hata ayıklamaya yardımcı olan araç
+    - [addr \[address\]](axelard_debug_addr.md)	 - Bir adresi hex ve bech32 arasında dönüştürür
+    - [pubkey \[pubkey\]](axelard_debug_pubkey.md)	 - Proto JSON'dan bir pubkey kodunu çöz
+    - [raw-bytes \[raw-bytes\]](axelard_debug_raw-bytes.md)	 - Ham bayt çıktısını (örn. [10 21 13 255]) hex'e dönüştürün
+  - [export](axelard_export.md)	 - Durumu JSON'a aktar
+  - [gentx \[key_name\] \[amount\]](axelard_gentx.md)	 - Kendi kendine yetki veren bir genesis tx üret
   - [health-check](axelard_health-check.md)	 -
-  - [init \[moniker\]](axelard_init.md)	 - Initialize private validator, p2p, genesis, and application configuration files
-  - [keys](axelard_keys.md)	 - Manage your application's keys
-    - [add \<name>](axelard_keys_add.md)	 - Add an encrypted private key (either newly generated or recovered), encrypt it, and save to <name> file
-    - [delete \<name>...](axelard_keys_delete.md)	 - Delete the given keys
-    - [export \<name>](axelard_keys_export.md)	 - Export private keys
-    - [import \<name> \<keyfile>](axelard_keys_import.md)	 - Import private keys into the local keybase
-    - [list](axelard_keys_list.md)	 - List all keys
-    - [migrate \<old_home_dir>](axelard_keys_migrate.md)	 - Migrate keys from the legacy (db-based) Keybase
-    - [mnemonic](axelard_keys_mnemonic.md)	 - Compute the bip39 mnemonic for some input entropy
-    - [parse \<hex-or-bech32-address>](axelard_keys_parse.md)	 - Parse address from hex to bech32 and vice versa
-    - [show \[name_or_address \[name_or_address...\]\]](axelard_keys_show.md)	 - Retrieve key information by name or address
-  - [migrate \[target-version\] \[genesis-file\]](axelard_migrate.md)	 - Migrate genesis to a specified target version
-  - [query](axelard_query.md)	 - Querying subcommands
-    - [account \[address\]](axelard_query_account.md)	 - Query for account by address
-    - [auth](axelard_query_auth.md)	 - Querying commands for the auth module
-      - [account \[address\]](axelard_query_auth_account.md)	 - Query for account by address
-      - [accounts](axelard_query_auth_accounts.md)	 - Query all the accounts
-      - [params](axelard_query_auth_params.md)	 - Query the current auth parameters
-    - [bank](axelard_query_bank.md)	 - Querying commands for the bank module
-      - [balances \[address\]](axelard_query_bank_balances.md)	 - Query for account balances by address
-      - [denom-metadata](axelard_query_bank_denom-metadata.md)	 - Query the client metadata for coin denominations
-      - [total](axelard_query_bank_total.md)	 - Query the total supply of coins of the chain
-    - [block \[height\]](axelard_query_block.md)	 - Get verified data for a the block at given height
-    - [distribution](axelard_query_distribution.md)	 - Querying commands for the distribution module
-      - [commission \[validator\]](axelard_query_distribution_commission.md)	 - Query distribution validator commission
-      - [community-pool](axelard_query_distribution_community-pool.md)	 - Query the amount of coins in the community pool
-      - [params](axelard_query_distribution_params.md)	 - Query distribution params
-      - [rewards \[delegator-addr\] \[validator-addr\]](axelard_query_distribution_rewards.md)	 - Query all distribution delegator rewards or rewards from a particular validator
-      - [slashes \[validator\] \[start-height\] \[end-height\]](axelard_query_distribution_slashes.md)	 - Query distribution validator slashes
-      - [validator-outstanding-rewards \[validator\]](axelard_query_distribution_validator-outstanding-rewards.md)	 - Query distribution outstanding (un-withdrawn) rewards for a validator and all their delegations
-    - [evidence](axelard_query_evidence.md)	 - Query for evidence by hash or for all (paginated) submitted evidence
-    - [evm](axelard_query_evm.md)	 - Querying commands for the evm module
-      - [address \[chain\]](axelard_query_evm_address.md)	 - Returns the EVM address
-      - [batched-commands \[chain\] \[batchedCommandsID\]](axelard_query_evm_batched-commands.md)	 - Get the signed batched commands that can be wrapped in an EVM transaction to be executed in Axelar Gateway
-      - [burner-info \[deposit address\]](axelard_query_evm_burner-info.md)	 - Get information about a burner address
-      - [bytecode \[chain\] \[contract\]](axelard_query_evm_bytecode.md)	 - Fetch the bytecodes of an EVM contract \[contract\] for chain \[chain\]
-      - [chains](axelard_query_evm_chains.md)	 - Get EVM chains
-      - [command \[chain\] \[id\]](axelard_query_evm_command.md)	 - Get information about an EVM gateway command given a chain and the command ID
-      - [confirmation-height \[chain\]](axelard_query_evm_confirmation-height.md)	 - Returns the minimum confirmation height for the given chain
-      - [deposit-state \[chain\] \[txID\] \[burner address\] \[amount\]](axelard_query_evm_deposit-state.md)	 - Query the state of a deposit transaction
-      - [gateway-address \[chain\]](axelard_query_evm_gateway-address.md)	 - Query the Axelar Gateway contract address
-      - [latest-batched-commands \[chain\]](axelard_query_evm_latest-batched-commands.md)	 - Get the latest batched commands that can be wrapped in an EVM transaction to be executed in Axelar Gateway
-      - [pending-commands \[chain\]](axelard_query_evm_pending-commands.md)	 - Get the list of commands not yet added to a batch
-      - [token-address \[chain\]](axelard_query_evm_token-address.md)	 - Query a token address by by either symbol or asset
-    - [feegrant](axelard_query_feegrant.md)	 - Querying commands for the feegrant module
-      - [grant \[granter\] \[grantee\]](axelard_query_feegrant_grant.md)	 - Query details of a single grant
-      - [grants \[grantee\]](axelard_query_feegrant_grants.md)	 - Query all grants of a grantee
-    - [gov](axelard_query_gov.md)	 - Querying commands for the governance module
-      - [deposit \[proposal-id\] \[depositer-addr\]](axelard_query_gov_deposit.md)	 - Query details of a deposit
-      - [deposits \[proposal-id\]](axelard_query_gov_deposits.md)	 - Query deposits on a proposal
-      - [param \[param-type\]](axelard_query_gov_param.md)	 - Query the parameters (voting|tallying|deposit) of the governance process
-      - [params](axelard_query_gov_params.md)	 - Query the parameters of the governance process
-      - [proposal \[proposal-id\]](axelard_query_gov_proposal.md)	 - Query details of a single proposal
-      - [proposals](axelard_query_gov_proposals.md)	 - Query proposals with optional filters
-      - [proposer \[proposal-id\]](axelard_query_gov_proposer.md)	 - Query the proposer of a governance proposal
-      - [tally \[proposal-id\]](axelard_query_gov_tally.md)	 - Get the tally of a proposal vote
-      - [vote \[proposal-id\] \[voter-addr\]](axelard_query_gov_vote.md)	 - Query details of a single vote
-      - [votes \[proposal-id\]](axelard_query_gov_votes.md)	 - Query votes on a proposal
-    - [ibc](axelard_query_ibc.md)	 - Querying commands for the IBC module
-      - [channel](axelard_query_ibc_channel.md)	 - IBC channel query subcommands
-        - [channels](axelard_query_ibc_channel_channels.md)	 - Query all channels
-        - [client-state \[port-id\] \[channel-id\]](axelard_query_ibc_channel_client-state.md)	 - Query the client state associated with a channel
-        - [connections \[connection-id\]](axelard_query_ibc_channel_connections.md)	 - Query all channels associated with a connection
-        - [end \[port-id\] \[channel-id\]](axelard_query_ibc_channel_end.md)	 - Query a channel end
-        - [next-sequence-receive \[port-id\] \[channel-id\]](axelard_query_ibc_channel_next-sequence-receive.md)	 - Query a next receive sequence
-        - [packet-ack \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-ack.md)	 - Query a packet acknowledgement
-        - [packet-commitment \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-commitment.md)	 - Query a packet commitment
-        - [packet-commitments \[port-id\] \[channel-id\]](axelard_query_ibc_channel_packet-commitments.md)	 - Query all packet commitments associated with a channel
-        - [packet-receipt \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-receipt.md)	 - Query a packet receipt
-        - [unreceived-acks \[port-id\] \[channel-id\]](axelard_query_ibc_channel_unreceived-acks.md)	 - Query all the unreceived acks associated with a channel
-        - [unreceived-packets \[port-id\] \[channel-id\]](axelard_query_ibc_channel_unreceived-packets.md)	 - Query all the unreceived packets associated with a channel
-      - [client](axelard_query_ibc_client.md)	 - IBC client query subcommands
-        - [consensus-state \[client-id\] \[height\]](axelard_query_ibc_client_consensus-state.md)	 - Query the consensus state of a client at a given height
-        - [consensus-states \[client-id\]](axelard_query_ibc_client_consensus-states.md)	 - Query all the consensus states of a client.
-        - [header](axelard_query_ibc_client_header.md)	 - Query the latest header of the running chain
-        - [params](axelard_query_ibc_client_params.md)	 - Query the current ibc client parameters
-        - [self-consensus-state](axelard_query_ibc_client_self-consensus-state.md)	 - Query the self consensus state for this chain
-        - [state \[client-id\]](axelard_query_ibc_client_state.md)	 - Query a client state
-        - [states](axelard_query_ibc_client_states.md)	 - Query all available light clients
-        - [status \[client-id\]](axelard_query_ibc_client_status.md)	 - Query client status
-      - [connection](axelard_query_ibc_connection.md)	 - IBC connection query subcommands
-        - [connections](axelard_query_ibc_connection_connections.md)	 - Query all connections
-        - [end \[connection-id\]](axelard_query_ibc_connection_end.md)	 - Query stored connection end
-        - [path \[client-id\]](axelard_query_ibc_connection_path.md)	 - Query stored client connection paths
-    - [ibc-transfer](axelard_query_ibc-transfer.md)	 - IBC fungible token transfer query subcommands
-      - [denom-trace \[hash\]](axelard_query_ibc-transfer_denom-trace.md)	 - Query the denom trace info from a given trace hash
-      - [denom-traces](axelard_query_ibc-transfer_denom-traces.md)	 - Query the trace info for all token denominations
+  - [init \[moniker\]](axelard_init.md)	 - Özel doğrulayıcı, p2p, genesis ve uygulama yapılandırma dosyalarını başlat
+  - [keys](axelard_keys.md)	 - Uygulamanızın anahtarlarını yönetin
+    - [add \<name>](axelard_keys_add.md)	 - Şifreli bir özel anahtar ekleyin (yeni oluşturulmuş veya kurtarılmış), şifreleyin ve dosyaya kaydedin
+    - [delete \<name>...](axelard_keys_delete.md)	 - Verilen anahtarları sil
+    - [export \<name>](axelard_keys_export.md)	 - Özel anahtarları dışa aktar
+    - [import \<name> \<keyfile>](axelard_keys_import.md)	 - Özel anahtarları yerel anahtar tabanına aktar
+    - [list](axelard_keys_list.md)	 - Tüm anahtarları listele
+    - [migrate \<old_home_dir>](axelard_keys_migrate.md)	 - Anahtarları eski (db-tabanlı) Keybase'den taşı
+    - [mnemonic](axelard_keys_mnemonic.md)	 - Bazı girdi entropileri için bip39 anımsatıcısını hesaplayın
+    - [parse \<hex-or-bech32-address>](axelard_keys_parse.md)	 - Adresi hex'ten bech32'ye veya tam tersi şekilde ayrıştırır
+    - [show \[name_or_address \[name_or_address...\]\]](axelard_keys_show.md)	 - Anahtar bilgilerini ada veya adrese göre alın
+  - [migrate \[target-version\] \[genesis-file\]](axelard_migrate.md)	 - Genesis'i belirli bir hedef sürüme taşı
+  - [query](axelard_query.md)	 - Alt komutları sorgulama
+    - [account \[address\]](axelard_query_account.md)	 - Adrese göre hesap sorgusu
+    - [auth](axelard_query_auth.md)	 - auth modülü için komutları sorgulama
+      - [account \[address\]](axelard_query_auth_account.md)	 - Adrese göre hesap sorgusu
+      - [accounts](axelard_query_auth_accounts.md)	 - Tüm hesapları sorgula
+      - [params](axelard_query_auth_params.md)	 - Geçerli kimlik doğrulama parametrelerini sorgula
+    - [bank](axelard_query_bank.md)	 - Banka modülü için komutları sorgulama
+      - [balances \[address\]](axelard_query_bank_balances.md)	 - Adrese göre hesap bakiyelerini sorgula
+      - [denom-metadata](axelard_query_bank_denom-metadata.md)	 - coinler için istemci meta verilerini sorgula
+      - [total](axelard_query_bank_total.md)	 - Zincirin toplam madeni para arzını sorgulayın
+    - [block \[height\]](axelard_query_block.md)	 - Belirli bir yükseklikte bir blok için doğrulanmış verileri alın
+    - [distribution](axelard_query_distribution.md)	 - Dağıtım modülü için sorgulama komutları
+      - [commission \[validator\]](axelard_query_distribution_commission.md)	 - Sorgu dağıtımı doğrulayıcı komisyonu
+      - [community-pool](axelard_query_distribution_community-pool.md)	 - Topluluk havuzundaki jeton miktarını sorgula
+      - [params](axelard_query_distribution_params.md)	 - Dağıtım parametrelerini sorgula
+      - [rewards \[delegator-addr\] \[validator-addr\]](axelard_query_distribution_rewards.md)	 - Tüm dağıtım delegasyonu ödüllerini veya belirli bir doğrulayıcıdan gelen ödülleri sorgula
+      - [slashes \[validator\] \[start-height\] \[end-height\]](axelard_query_distribution_slashes.md)	 -Dağıtım doğrulayıcı eğik çizgilerini sorgula
+      - [validator-outstanding-rewards \[validator\]](axelard_query_distribution_validator-outstanding-rewards.md)	 - Bir doğrulayıcı ve tüm delegasyonları için bekleyen (geri alınmamış) ödülleri sorgula
+    - [evidence](axelard_query_evidence.md)	 - Karma veya tüm (sayfalandırılmış) gönderilen kanıtlar için kanıt sorgula
+    - [evm](axelard_query_evm.md)	 - evm modülü için komutları sorgulama
+      - [address \[chain\]](axelard_query_evm_address.md)	 - EVM adresini döndürür
+      - [batched-commands \[chain\] \[batchedCommandsID\]](axelard_query_evm_batched-commands.md)	 - Axelar Gateway'de yürütülecek bir EVM işlemine sarılabilen imzalı toplu komutları alın
+      - [burner-info \[deposit address\]](axelard_query_evm_burner-info.md)	 - Bir burn adresi hakkında bilgi alın
+      - [bytecode \[chain\] \[contract\]](axelard_query_evm_bytecode.md)	 - Zincir \[chain\] için bir EVM sözleşmesinin \[contract\] bayt kodlarını getir
+      - [chains](axelard_query_evm_chains.md)	 - EVM zincirleri alın
+      - [command \[chain\] \[id\]](axelard_query_evm_command.md)	 - Bir zincir ve komut kimliği verilen bir EVM ağ geçidi komutu hakkında bilgi alın
+      - [confirmation-height \[chain\]](axelard_query_evm_confirmation-height.md)	 - Verilen zincir için minimum onay yüksekliğini döndürür
+      - [deposit-state \[chain\] \[txID\] \[burner address\] \[amount\]](axelard_query_evm_deposit-state.md)	 -Bir para yatırma işleminin durumunu sorgula
+      - [gateway-address \[chain\]](axelard_query_evm_gateway-address.md)	 - Axelar Gateway sözleşme adresini sorgula
+      - [latest-batched-commands \[chain\]](axelard_query_evm_latest-batched-commands.md)	 - Axelar Gateway'de yürütülecek bir EVM işlemine sarılabilen en son toplu komutları alın
+      - [pending-commands \[chain\]](axelard_query_evm_pending-commands.md)	 - Henüz bir toplu iş grubuna eklenmemiş komutların listesini alın
+      - [token-address \[chain\]](axelard_query_evm_token-address.md)	 - Simge veya varlığa göre bir belirteç adresi sorgula
+    - [feegrant](axelard_query_feegrant.md)	 - Fegrant modülü için komutları sorgulama
+      - [grant \[granter\] \[grantee\]](axelard_query_feegrant_grant.md)	 - Tek bir hibenin ayrıntılarını sorgula
+      - [grants \[grantee\]](axelard_query_feegrant_grants.md)	 - Bir hibe alanın tüm hibelerini sorgular
+    - [gov](axelard_query_gov.md)	 - Yönetişim modülü için komutları sorgulama
+      - [deposit \[proposal-id\] \[depositer-addr\]](axelard_query_gov_deposit.md)	 - Depozito ayrıntılarını sorgula
+      - [deposits \[proposal-id\]](axelard_query_gov_deposits.md)	 - Bir teklifteki mevduatları sorgula
+      - [param \[param-type\]](axelard_query_gov_param.md)	 - Yönetişim sürecinin parametrelerini sorgulayın (oylama|tallying|para yatırma)
+      - [params](axelard_query_gov_params.md)	 - Yönetişim sürecinin parametrelerini sorgula
+      - [proposal \[proposal-id\]](axelard_query_gov_proposal.md)	 - Tek bir teklifin ayrıntılarını sorgula
+      - [proposals](axelard_query_gov_proposals.md)	 - İsteğe bağlı filtrelerle teklifleri sorgulayın
+      - [proposer \[proposal-id\]](axelard_query_gov_proposer.md)	 - Bir yönetim teklifinin teklif sahibini sorgula
+      - [tally \[proposal-id\]](axelard_query_gov_tally.md)	 - Bir teklif oylamasının çetelesini alın
+      - [vote \[proposal-id\] \[voter-addr\]](axelard_query_gov_vote.md)	 - Tek bir oylamanın ayrıntılarını sorgula
+      - [votes \[proposal-id\]](axelard_query_gov_votes.md)	 - Bir teklife ilişkin oyları sorgula
+    - [ibc](axelard_query_ibc.md)	 - IBC modülü için komutları sorgulama
+      - [channel](axelard_query_ibc_channel.md)	 - IBC kanal sorgusu alt komutları
+        - [channels](axelard_query_ibc_channel_channels.md)	 - Tüm kanalları sorgula
+        - [client-state \[port-id\] \[channel-id\]](axelard_query_ibc_channel_client-state.md)	 - Bir kanalla ilişkili istemci durumunu sorgular
+        - [connections \[connection-id\]](axelard_query_ibc_channel_connections.md)	 - Bir bağlantıyla ilişkili tüm kanalları sorgular
+        - [end \[port-id\] \[channel-id\]](axelard_query_ibc_channel_end.md)	 - Kanal sonunu sorgular
+        - [next-sequence-receive \[port-id\] \[channel-id\]](axelard_query_ibc_channel_next-sequence-receive.md)	 - Bir sonraki alma sırasını sorgula
+        - [packet-ack \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-ack.md)	 -Bir paket alındısını sorgula
+        - [packet-commitment \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-commitment.md)	 - Bir paket taahhüdü sorgula
+        - [packet-commitments \[port-id\] \[channel-id\]](axelard_query_ibc_channel_packet-commitments.md)	 - Bir kanalla ilişkili tüm paket taahhütlerini sorgula
+        - [packet-receipt \[port-id\] \[channel-id\] \[sequence\]](axelard_query_ibc_channel_packet-receipt.md)	 - Bir paket makbuzu sorgula
+        - [unreceived-acks \[port-id\] \[channel-id\]](axelard_query_ibc_channel_unreceived-acks.md)	 - Bir kanalla ilişkili tüm alınmamış onayları sorgula
+        - [unreceived-packets \[port-id\] \[channel-id\]](axelard_query_ibc_channel_unreceived-packets.md)	 - Bir kanalla ilişkili tüm alınmamış paketleri sorgular
+      - [client](axelard_query_ibc_client.md)	 - IBC istemci sorgusu alt komutları
+        - [consensus-state \[client-id\] \[height\]](axelard_query_ibc_client_consensus-state.md)	 -  Belirli bir yükseklikte bir müşterinin fikir birliği durumunu sorgula
+        - [consensus-states \[client-id\]](axelard_query_ibc_client_consensus-states.md)	 - Bir istemcinin tüm konsensüs durumlarını sorgular.
+        - [header](axelard_query_ibc_client_header.md)	 - Çalışan zincirin en son başlığını sorgula
+        - [params](axelard_query_ibc_client_params.md)	 - Geçerli ibc istemci parametrelerini sorgula
+        - [self-consensus-state](axelard_query_ibc_client_self-consensus-state.md)	 - Bu zincir için kendi konsensüs durumunu sorgula
+        - [state \[client-id\]](axelard_query_ibc_client_state.md)	 - İstemci durumunu sorgula
+        - [states](axelard_query_ibc_client_states.md)	 - Mevcut tüm hafif istemcileri sorgula
+        - [status \[client-id\]](axelard_query_ibc_client_status.md)	 - İstemci durumunu sorgula
+      - [connection](axelard_query_ibc_connection.md)	 - IBC bağlantı sorgusu alt komutları
+        - [connections](axelard_query_ibc_connection_connections.md)	 - Tüm bağlantıları sorgula
+        - [end \[connection-id\]](axelard_query_ibc_connection_end.md)	 - Kayıtlı bağlantı sonunu sorgula
+        - [path \[client-id\]](axelard_query_ibc_connection_path.md)	 - Depolanan istemci bağlantı yollarını sorgula
+    - [ibc-transfer](axelard_query_ibc-transfer.md)	 - IBC değiştirilebilir jeton transferi sorgusu alt komutları
+      - [denom-trace \[hash\]](axelard_query_ibc-transfer_denom-trace.md)	 - Belirli bir izleme karma değerinden denom izleme bilgilerini sorgula
+      - [denom-traces](axelard_query_ibc-transfer_denom-traces.md)	 - Tüm belirteç değerleri için izleme bilgilerini sorgula
       - [escrow-address](axelard_query_ibc-transfer_escrow-address.md)	 - Get the escrow address for a channel
       - [params](axelard_query_ibc-transfer_params.md)	 - Query the current ibc-transfer parameters
     - [mint](axelard_query_mint.md)	 - Querying commands for the minting module
