@@ -18,44 +18,36 @@ Cosmos SDK'yı temel alan axelar-core uygulaması, axelar ağının ana uygulama
     * `ssh-add ~/.ssh/{private key file name} &>/dev/null` parametresini Kabuğunuzun .rc dosyasına ekleyin (örn. `~/.bash_profile`).
 4. `go get` zorlamak için ssh ile kimlik doğrulaması yapın; `git config --global url."git@github.com:axelarnetwork".insteadOf https://github.com/axelarnetwork`
 
-## Building binaries locally
+## Yerel olarak ikili dosyalar oluşturma
 
-Execute `make build` to create local binaries for the validator node. They are created in the `./bin` folder.
+Doğrulayıcı düğüm için yerel ikili dosyalar oluşturmak üzere `make build` komutunu yürütün. Bunlar 'bin' klasöründe oluşturulur.
 
-## Creating docker images
+## Docker imajları oluşturma
 
-To create a regular docker image for the node, execute `make docker-image`. This creates the image axelar/core:
-latest.
+Düğüm için normal bir docker görüntüsü oluşturmak için `make docker-image` komutunu çalıştırın. Bu, axelar/core:latest görüntüsünü oluşturur.
 
-To create a docker image for debugging (with [delve](https://github.com/go-delve/delve)),
-execute `make docker-image-debug`. This creates the image axelar/core-debug:latest.
+Hata ayıklama için bir docker görüntüsü oluşturmak için ([delve ile](https://github.com/go-delve/delve)) `make docker-image-debug` komutunu yürütün. Bu, axelar/core-debug:latest görüntüsünü oluşturur.
 
-## Interacting with a local node
+## Yerel bir düğümle etkileşim kurma
 
-With a local (dockerized) node running, the `axelard` binary can be used to interact with the node.
-Run `./bin/axelard --help` after building the binaries to get information about the available commands.
+Yerel (dockerize edilmiş) bir düğüm çalışırken, düğümle etkileşim kurmak için `axelard` ikili dosyası kullanılabilir. Mevcut komutlar hakkında bilgi almak için ikili dosyaları oluşturduktan sonra `./bin/axelard --help` komutunu çalıştırın.
 
-## Show API documentation
+## API belgelerini göster
 
-Execute `GO111MODULE=off go get -u golang.org/x/tools/cmd/godoc` to ensure that `godoc` is installed on the host.
+`Godoc`'un ana bilgisayara kurulu olduğundan emin olmak için `GO111MODULE=off go get -u golang.org/x/tools/cmd/godoc` dosyasını yürütün.
 
-After the installation, execute `godoc -http ":{port}" -index` to host a local godoc server. For example, with
-port `8080` the documentation is hosted at
-http://localhost:8080/pkg/github.com/axelarnetwork/axelar-core. The index flag makes the documentation searchable.
+Kurulumdan sonra, yerel bir godoc sunucusunu barındırmak için `godoc -http ":{port}" -index` komutunu çalıştırın. Örneğin, `8080` numaralı bağlantı noktasıyla belgeler http://localhost:8080/pkg/github.com/axelarnetwork/axelar-core adresinde barındırılır. Dizin bayrağı, belgeleri aranabilir hale getirir.
 
-Comments at the beginning of packages, before types and before functions are automatically taken from the source files
-to populate the documentation. See https://blog.golang.org/godoc for more information.
+Paketlerin başındaki, türlerden önceki ve işlevlerden önceki yorumlar, belgeleri doldurmak için kaynak dosyalardan otomatik olarak alınır. Daha fazla bilgi için https://blog.golang.org/godoc adresine bakın.
 
-### CLI command documentation
+### CLI komut belgeleri
 
-For the full list of available CLI commands for `axelard` see [here](docs/cli/toc.md)
+`axelard` için mevcut CLI komutlarının tam listesi için [buraya](docs/cli/toc.md) bakın 
 
-## Test tools
+## Test araçları
 
-Because it is an executable, github.com/matryer/moq is not automatically downloaded when executing ``go mod download``
-or similar commands. Execute ``go get github.com/matryer/moq`` to install the _moq_ tool to generate mocks for
-interfaces.
+Yürütülebilir bir dosya olduğundan, ``go mod download`` veya benzeri komutlar yürütülürken otomatik olarak indirilmez. Arayüzler için mocklar oluşturmak üzere moq aracını kurmak için ``go get github.com/matryer/moq`` komutunu çalıştırın.
 
-## Bug bounty and disclosure of vulnerabilities
+## Hata ödülü ve güvenlik açıklarının açıklanması
 
-See the [Axelar documentation website](https://docs.axelar.dev/#/bug-bounty).
+Bakın; [Axelar dökümanları](https://docs.axelar.dev/#/bug-bounty).
