@@ -9,15 +9,14 @@ Cosmos SDK'yı temel alan axelar-core uygulaması, axelar ağının ana uygulama
 1. Makinenizde bir SSH anahtarınız olsun
 2. Kimlik doğrulama için genel anahtarınızı Github hesabınıza ekleyin
 3. Özel anahtarınızı ssh aracınıza eklemek için `ssh-add ~/.ssh/{private key file name}` çalıştırın. **ÖNEMLİ**: ssh aracısı yalnızca özel anahtarınızı bellekte tutar, bu nedenle makinenizi her yeniden başlattığınızda bu adımı tekrarlamanız gerekir. Bu adımı [burada](https://apple.stackexchange.com/questions/254468/macos-sierra-doesn-t-seem-to-remember-ssh-keys-between-reboots/264974#264974) açıklandığı gibi iki şekilde otomatikleştirebilirsiniz :
-    * Add the following to your `~/.ssh/config` file:
+    * `~/.ssh/config` Dosyanıza şunları ekleyin:
     ```
     Host *
        AddKeysToAgent yes
        UseKeychain yes     
     ```
-    * Add `ssh-add ~/.ssh/{private key file name} &>/dev/null` in your shell's .rc file (eg. `~/.bash_profile`).
-4. Run `git config --global url."git@github.com:axelarnetwork".insteadOf https://github.com/axelarnetwork` to
-   force `go get` to authenticate via ssh
+    * `ssh-add ~/.ssh/{private key file name} &>/dev/null` parametresini Kabuğunuzun .rc dosyasına ekleyin (örn. `~/.bash_profile`).
+4. `go get` zorlamak için ssh ile kimlik doğrulaması yapın; `git config --global url."git@github.com:axelarnetwork".insteadOf https://github.com/axelarnetwork`
 
 ## Building binaries locally
 
