@@ -1,18 +1,14 @@
-⚠️⚠️⚠️ **THIS IS A WORK IN PROGRESS** ⚠️⚠️⚠️
+⚠️⚠️⚠️ **BU DEVAM EDEN BİR ÇALIŞMADIR** ⚠️⚠️⚠️
 
 # axelar-core
 
-The axelar-core app based on the Cosmos SDK is the main application of the axelar network. This repository is used to
-build the necessary binaries and docker image to run a core node.
+Cosmos SDK'yı temel alan axelar-core uygulaması, axelar ağının ana uygulamasıdır. Bu depo, bir çekirdek düğümü çalıştırmak için gerekli ikili dosyaları ve Docker imajı oluşturmak için kullanılır.
 
-## Prerequisites for building binaries and docker images
+## İkili dosyalar ve Docker görüntüleri oluşturmak için ön koşullar
 
-1. Have a SSH key on your machine
-2. Add your public key to your Github account for authentication
-3. Run `ssh-add ~/.ssh/{private key file name}` to add your private key to your ssh agent. **IMPORTANT**: the ssh agent
-   only keeps your priate key in memory so you have to repeat this step every time you restart your machine. You can
-   automate this step in two ways as
-   described [here](https://apple.stackexchange.com/questions/254468/macos-sierra-doesn-t-seem-to-remember-ssh-keys-between-reboots/264974#264974):
+1. Makinenizde bir SSH anahtarınız olsun
+2. Kimlik doğrulama için genel anahtarınızı Github hesabınıza ekleyin
+3. Özel anahtarınızı ssh aracınıza eklemek için `ssh-add ~/.ssh/{private key file name}` çalıştırın. **ÖNEMLİ**: ssh aracısı yalnızca özel anahtarınızı bellekte tutar, bu nedenle makinenizi her yeniden başlattığınızda bu adımı tekrarlamanız gerekir. Bu adımı [burada](https://apple.stackexchange.com/questions/254468/macos-sierra-doesn-t-seem-to-remember-ssh-keys-between-reboots/264974#264974) açıklandığı gibi iki şekilde otomatikleştirebilirsiniz :
     * Add the following to your `~/.ssh/config` file:
     ```
     Host *
