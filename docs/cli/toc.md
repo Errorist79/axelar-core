@@ -1,4 +1,4 @@
-# CLI command overview
+# CLI komutlarına genel bakış
 
 - [axelard](axelard.md)	 - Axelar Uygulaması
   - [add-genesis-account \[address_or_key_name\] \[coin\]\[,\[coin\]\]](axelard_add-genesis-account.md)	 - genesis.json'a bir genesis hesabı ekle
